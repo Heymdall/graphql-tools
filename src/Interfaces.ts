@@ -11,6 +11,10 @@ import {
   DocumentNode,
 } from 'graphql';
 
+import {
+  SchemaDirectiveVisitor,
+} from './directives';
+
 /* TODO: Add documentation */
 
 export type UnitOrList<Type> = Type | Array<Type>;
@@ -78,6 +82,7 @@ export interface IExecutableSchemaDefinition {
   allowUndefinedInResolve?: boolean;
   resolverValidationOptions?: IResolverValidationOptions;
   directiveResolvers?: IDirectiveResolvers<any, any>;
+  directiveVisitors?: { [name: string]: typeof SchemaDirectiveVisitor };
   parseOptions?: GraphQLParseOptions;
 }
 
